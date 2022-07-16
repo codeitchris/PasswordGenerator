@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
 
 
 using std::cin;
@@ -39,7 +40,7 @@ int main() {
 
 
     cout << "What type of characters do you want included?" << 
-    "The options include: upercase, lowercase, numbers, and misc characters" << 
+    "The options include: upercase, lowercase, numbers, and misc" << 
     "Type your desired characters, one at a time, pressing enter after each one" << 
     "When finsihed, type: end-of-file" << endl;
 
@@ -59,7 +60,31 @@ int main() {
 // Password generation
 
     int j;
-    
+    vector<vector<char> > userscharacters;
+    vector<string>::iterator iter1 = desiredchar.begin();
+
+    for (iter1; iter1 != desiredchar.end(); iter1++) {
+        if (*iter1 == "upercase") {
+            userscharacters.push_back(upcase);
+        } else if (*iter1 ==  "lowercase"  ) {
+            userscharacters.push_back(lowcase);
+        } else if (*iter1 ==   "numbers"  ) {
+            j = 1;
+        }else if (*iter1 ==  "misc" ) {
+            userscharacters.push_back(characters);
+        } else {
+            cout << "Please enter a propper type" << endl;
+        }
+
+    }
+
+    int sizeofN = userscharacters.size() + j;
+    int random;
+    string finalpassword;
+    if (j !=0) {
+    }
+
+
 
     return 0;
 }
