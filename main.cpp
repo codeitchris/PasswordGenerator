@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <ctime>
 
 
 using std::cin;
@@ -23,7 +24,7 @@ int main() {
     vector<char> lowcase = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
     'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
-    vector<int> nums = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<char> nums = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
     vector<char> characters = {'~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', 
     '=', '+', '[', ']', '{', '}', '\\', '/', '<', '>', ',', '.', '/', '?'};
@@ -55,7 +56,12 @@ int main() {
         desiredchar.push_back(word);
     }
 
-    cout << "thanks, we'll make your password now." << endl;
+    cout << "thanks. please provide a ranom number, it will make this process more secure" << endl;
+
+    int rndnum;
+    cin >> rndnum;
+
+    cout << "okay, thanks! now I can make you're password" << endl;
 
 // Password generation
 
@@ -69,7 +75,7 @@ int main() {
         } else if (*iter1 ==  "lowercase"  ) {
             userscharacters.push_back(lowcase);
         } else if (*iter1 ==   "numbers"  ) {
-            j = 1;
+            userscharacters.push_back(nums);
         }else if (*iter1 ==  "misc" ) {
             userscharacters.push_back(characters);
         } else {
@@ -78,13 +84,18 @@ int main() {
 
     }
 
-    int sizeofN = userscharacters.size() + j;
-    int random;
-    string finalpassword;
-    if (j !=0) {
+    int sizeofN = userscharacters.size();
+    
+    srand(time(0));
+
+    string password;
+    for (int k = 0; k != x; k++) {
+        int process = rand()%sizeofN;
+        int proces2 = rand()%userscharacters[process].size();
+        password.push_back(userscharacters[process][proces2]);
     }
 
-
+    cout << "Your password is: " << password << endl;
 
     return 0;
 }
