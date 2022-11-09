@@ -2,6 +2,4 @@
 
 Project to develop random passwords!
 
-## Subheader
-
-let's Go!
+Simple project to help practice interfacing with user input and manipulating strings
